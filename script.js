@@ -167,8 +167,8 @@ const codeModal = document.getElementById('codeModal');
 const codeGameName = document.getElementById('codeGameName');
 
 // Zalo and Facebook links
-const zaloLink = "https://zalo.me/0901234567"; // Thay bằng số điện thoại/link zalo của bạn
-const fbLink = "https://facebook.com/gamevietmobile"; // Thay bằng link Fanpage của bạn
+const zaloLink = "https://zalo.me/0367948006"; // Thay bằng số điện thoại/link zalo của bạn
+const fbLink = "https://www.facebook.com/messages/t/830179270185307"; // Thay bằng link Fanpage của bạn
 
 function showCodeModal(gameName) {
   codeGameName.textContent = gameName;
