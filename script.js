@@ -387,78 +387,6 @@ document.querySelectorAll('img').forEach(img => {
 
 
 // =============================
-// Fetch Facebook News
-// =============================
-async function fetchFacebookNews() {
-  const newsGrid = document.getElementById('newsGrid');
-  if (!newsGrid) return;
-
-  try {
-    const res = await fetch('/api/news');
-    const data = await res.json();
-
-    if (data.success && data.posts && data.posts.length > 0) {
-      // Clear existing fallback cards
-      newsGrid.innerHTML = '';
-
-      data.posts.forEach((post, index) => {
-        const article = document.createElement('article');
-        article.className = `news-card${index === 0 ? ' news-featured' : ''}`;
-
-        // Fallback gradients for placeholder graphics
-        const gradients = [
-          'linear-gradient(135deg, #7c3aed, #dc2626)',
-          'linear-gradient(135deg, #2563eb, #12b981)',
-          'linear-gradient(135deg, #f59e0b, #e11d48)',
-          'linear-gradient(135deg, #db2777, #4f46e5)',
-          'linear-gradient(135deg, #0984e3, #d63031)'
-        ];
-        const selectedGradient = gradients[index % gradients.length];
-
-        const imageHTML = post.image 
-          ? `<img src="${post.image}" alt="${post.title}" loading="lazy" onload="this.classList.add('loaded')" />`
-          : `<div class="news-img-placeholder" style="background: ${selectedGradient}"><span>📰</span></div>`;
-
-        let cardHTML = '';
-        if (index === 0) {
-          cardHTML = `
-            <div class="news-image">
-              ${imageHTML}
-            </div>
-            <div class="news-body">
-              <span class="news-tag">Hot</span>
-              <h3>${post.title}</h3>
-              <p>${post.desc}</p>
-              <div class="news-footer">
-                <span class="news-date">${post.date}</span>
-                <a href="${post.link}" target="_blank" class="news-read">Xem chi tiết →</a>
-              </div>
-            </div>
-          `;
-        } else {
-          cardHTML = `
-            <div class="news-body">
-              <span class="news-tag">Tin tức</span>
-              <h3>${post.title}</h3>
-              <p>${post.desc}</p>
-              <div class="news-footer">
-                <span class="news-date">${post.date}</span>
-                <a href="${post.link}" target="_blank" class="news-read">Xem chi tiết →</a>
-              </div>
-            </div>
-          `;
-        }
-
-        article.innerHTML = cardHTML;
-        newsGrid.appendChild(article);
-      });
-    }
-  } catch (err) {
-    console.warn('Failed to load Facebook news feed. Using static fallback cards.', err);
-  }
-}
-
-// =============================
 // Footer Year
 // =============================
 document.addEventListener('DOMContentLoaded', () => {
@@ -466,7 +394,4 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.footer-bottom p').forEach(p => {
     p.innerHTML = p.innerHTML.replace('2025', year);
   });
-  
-  // Call Facebook news fetch
-  fetchFacebookNews();
 });
