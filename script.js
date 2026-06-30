@@ -160,8 +160,38 @@ downloadModal.addEventListener('click', (e) => {
   if (e.target === downloadModal) closeModal();
 });
 
+// =============================
+// Code Modal
+// =============================
+const codeModal = document.getElementById('codeModal');
+const codeGameName = document.getElementById('codeGameName');
+
+// Zalo and Facebook links
+const zaloLink = "https://zalo.me/0901234567"; // Thay bằng số điện thoại/link zalo của bạn
+const fbLink = "https://facebook.com/gamevietmobile"; // Thay bằng link Fanpage của bạn
+
+function showCodeModal(gameName) {
+  codeGameName.textContent = gameName;
+  codeModal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+  document.getElementById('modal-zalo').href = zaloLink;
+  document.getElementById('modal-facebook').href = fbLink;
+}
+
+function closeCodeModal() {
+  codeModal.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+codeModal.addEventListener('click', (e) => {
+  if (e.target === codeModal) closeCodeModal();
+});
+
 document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') closeModal();
+  if (e.key === 'Escape') {
+    closeModal();
+    closeCodeModal();
+  }
 });
 
 // Game name → APK download path mapping
