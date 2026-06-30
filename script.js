@@ -319,23 +319,21 @@ const heroStats = document.querySelector('.hero-stats');
 if (heroStats) statsObserver.observe(heroStats);
 
 // =============================
-// Lazy Loading Images
+// Lazy Loading Images (Fade-in)
 // =============================
-const imageObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const img = entry.target;
-      img.style.opacity = '0';
-      img.style.transition = 'opacity 0.5s ease';
-      img.onload = () => { img.style.opacity = '1'; };
-      imageObserver.unobserve(img);
-    }
-  });
-}, { rootMargin: '200px' });
-
-document.querySelectorAll('img[loading="lazy"]').forEach(img => {
-  imageObserver.observe(img);
+document.querySelectorAll('img').forEach(img => {
+  if (img.complete) {
+    img.classList.add('loaded');
+  } else {
+    img.addEventListener('load', () => {
+      img.classList.add('loaded');
+    });
+    img.addEventListener('error', () => {
+      img.classList.add('loaded');
+    });
+  }
 });
+
 
 // =============================
 // Footer Year
