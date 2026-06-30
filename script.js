@@ -168,7 +168,7 @@ const codeGameName = document.getElementById('codeGameName');
 
 // Zalo and Facebook links
 const zaloLink = "https://zalo.me/0367948006"; // Thay bằng số điện thoại/link zalo của bạn
-const fbLink = "https://www.facebook.com/messages/t/830179270185307"; // Thay bằng link Fanpage của bạn
+const fbLink = "https://www.facebook.com/profile.php?id=61583939816663"; // Thay bằng link Fanpage của bạn
 
 function showCodeModal(gameName) {
   codeGameName.textContent = gameName;
@@ -220,11 +220,11 @@ function triggerDownload(gameName) {
   closeModal();
 }
 
-document.getElementById('modal-android').addEventListener('click', function(e) {
+document.getElementById('modal-android').addEventListener('click', function (e) {
   e.preventDefault();
   triggerDownload(modalGameName.textContent);
 });
-document.getElementById('modal-ios').addEventListener('click', function(e) {
+document.getElementById('modal-ios').addEventListener('click', function (e) {
   e.preventDefault();
   triggerDownload(modalGameName.textContent);
 });
@@ -286,7 +286,7 @@ function handleSubmit(e) {
 // Nav Link Active on Click
 // =============================
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function(e) {
+  anchor.addEventListener('click', function (e) {
     const targetId = this.getAttribute('href');
     if (targetId === '#') return;
     const target = document.querySelector(targetId);
