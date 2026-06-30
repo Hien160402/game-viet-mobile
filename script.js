@@ -164,18 +164,39 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') closeModal();
 });
 
-// Download links in modal (simulate)
+// Game name → APK download path mapping
+const gameDownloadMap = {
+  'Trấn Thi Hàng Quỷ': 'downloads/TRANTHIHANGQUY/TRANTHIHANGQUYYL784Z1_-plZCBnXbyOjM3V7n7VBWQ.apk',
+  'Thần Ma Giáng Thế': 'downloads/THANMAGIANGTHE/THANMAGIANGTHEYL784Z4_-plZCBnXbyOjM3V7n7VBWQ.apk',
+  'Phù Sinh Mộng': 'downloads/PHUSINHMONG/0de933f28f25a7ef20ad1c65572b5390.apk',
+  'Huyết Cảnh Chi Vực': 'downloads/HUYETCANHCHIVUC/21cd31df6ca22b5aa6543267af335bbe.apk',
+  'Tân Binh Thức Tỉnh': 'downloads/TANBINHTHUCTINH/7206e8dae3b095f80f4d51d06a9d963b.apk',
+};
+
+// Download handler for both Android & iOS
+function triggerDownload(gameName) {
+  const apkPath = gameDownloadMap[gameName];
+  if (apkPath) {
+    const link = document.createElement('a');
+    link.href = apkPath;
+    link.download = '';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    showToast(`Đang tải ${gameName}...`);
+  } else {
+    showToast(`Không tìm thấy file tải cho ${gameName}`);
+  }
+  closeModal();
+}
+
 document.getElementById('modal-android').addEventListener('click', function(e) {
   e.preventDefault();
-  const gameName = modalGameName.textContent;
-  showToast(`Đang tải ${gameName} cho Android...`);
-  closeModal();
+  triggerDownload(modalGameName.textContent);
 });
 document.getElementById('modal-ios').addEventListener('click', function(e) {
   e.preventDefault();
-  const gameName = modalGameName.textContent;
-  showToast(`Đang mở App Store cho ${gameName}...`);
-  closeModal();
+  triggerDownload(modalGameName.textContent);
 });
 
 // =============================
