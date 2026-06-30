@@ -447,7 +447,7 @@ input, textarea, select {
 
 .games-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 28px;
 }
 
@@ -603,6 +603,7 @@ input, textarea, select {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 12px;
   padding-top: 14px;
   border-top: 1px solid var(--border);
 }
