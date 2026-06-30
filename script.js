@@ -166,11 +166,11 @@ document.addEventListener('keydown', (e) => {
 
 // Game name → APK download path mapping
 const gameDownloadMap = {
-  'Trấn Thi Hàng Quỷ': 'downloads/TRANTHIHANGQUY/TRANTHIHANGQUYYL784Z1_-plZCBnXbyOjM3V7n7VBWQ.apk',
-  'Thần Ma Giáng Thế': 'downloads/THANMAGIANGTHE/THANMAGIANGTHEYL784Z4_-plZCBnXbyOjM3V7n7VBWQ.apk',
-  'Phù Sinh Mộng': 'downloads/PHUSINHMONG/0de933f28f25a7ef20ad1c65572b5390.apk',
-  'Huyết Cảnh Chi Vực': 'downloads/HUYETCANHCHIVUC/21cd31df6ca22b5aa6543267af335bbe.apk',
-  'Tân Binh Thức Tỉnh': 'downloads/TANBINHTHUCTINH/7206e8dae3b095f80f4d51d06a9d963b.apk',
+  'Trấn Thi Hàng Quỷ': 'https://github.com/Hien160402/game-viet-mobile/releases/download/v1.0.0/TRANTHIHANGQUY.apk',
+  'Thần Ma Giáng Thế': 'https://github.com/Hien160402/game-viet-mobile/releases/download/v1.0.0/THANMAGIANGTHE.apk',
+  'Phù Sinh Mộng': 'https://github.com/Hien160402/game-viet-mobile/releases/download/v1.0.0/PHUSINHMONG.apk',
+  'Huyết Cảnh Chi Vực': 'https://github.com/Hien160402/game-viet-mobile/releases/download/v1.0.0/HUYETCANHCHIVUC.apk',
+  'Tân Binh Thức Tỉnh': 'https://github.com/Hien160402/game-viet-mobile/releases/download/v1.0.0/TANBINHTHUCTINH.apk',
 };
 
 // Download handler for both Android & iOS
