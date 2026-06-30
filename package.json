@@ -1,0 +1,12 @@
+{
+  "name": "game-viet-mobile",
+  "version": "1.0.0",
+  "description": "Game Việt Mobile – Kho tải game huyền huyễn hàng đầu Việt Nam",
+  "scripts": {
+    "dev": "npx serve . -p 3000",
+    "start": "npx serve ."
+  },
+  "keywords": ["game", "việt", "mobile", "huyền huyễn"],
+  "author": "Game Việt Mobile",
+  "license": "MIT"
+}
