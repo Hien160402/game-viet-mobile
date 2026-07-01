@@ -187,10 +187,17 @@ codeModal.addEventListener('click', (e) => {
   if (e.target === codeModal) closeCodeModal();
 });
 
+// Gallery Modal Close Event
+const galleryModal = document.getElementById('galleryModal');
+galleryModal.addEventListener('click', (e) => {
+  if (e.target === galleryModal) closeGalleryModal();
+});
+
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') {
     closeModal();
     closeCodeModal();
+    closeGalleryModal();
   }
 });
 
@@ -394,4 +401,117 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.footer-bottom p').forEach(p => {
     p.innerHTML = p.innerHTML.replace('2025', year);
   });
+});
+
+// =============================
+// Gallery Modal Logic
+// =============================
+let currentGalleryImages = [];
+let currentImageIndex = 0;
+
+// Placeholder lists of screenshots for each game (sliding through existing game cover images)
+const gameScreenshotMap = {
+  'Trấn Thi Hàng Quỷ': [
+    'images/game1.png',
+    'images/game2.png',
+    'images/game3.png',
+    'images/game4.png'
+  ],
+  'Thần Ma Giáng Thế': [
+    'images/game2.png',
+    'images/game1.png',
+    'images/game3.png',
+    'images/game5.png'
+  ],
+  'Phù Sinh Mộng': [
+    'images/game3.png',
+    'images/game2.png',
+    'images/game4.png',
+    'images/game5.png'
+  ],
+  'Huyết Cảnh Chi Vực': [
+    'images/game4.png',
+    'images/game1.png',
+    'images/game3.png',
+    'images/game2.png'
+  ],
+  'Tân Binh Thức Tỉnh': [
+    'images/game5.png',
+    'images/game2.png',
+    'images/game4.png',
+    'images/game1.png'
+  ]
+};
+
+const galleryTitle = document.getElementById('galleryTitle');
+const galleryImage = document.getElementById('galleryImage');
+const galleryCounter = document.getElementById('galleryCounter');
+const galleryThumbnails = document.getElementById('galleryThumbnails');
+
+function showGameGallery(gameName) {
+  const screenshots = gameScreenshotMap[gameName];
+  if (!screenshots || screenshots.length === 0) {
+    showToast(`Không có hình ảnh cho ${gameName}`);
+    return;
+  }
+  
+  currentGalleryImages = screenshots;
+  currentImageIndex = 0;
+  
+  galleryTitle.textContent = gameName;
+  updateGallerySlide();
+  buildGalleryThumbnails();
+  
+  galleryModal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeGalleryModal() {
+  galleryModal.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+function updateGallerySlide() {
+  galleryImage.classList.remove('active');
+  setTimeout(() => {
+    galleryImage.src = currentGalleryImages[currentImageIndex];
+    galleryImage.classList.add('active');
+  }, 100);
+  
+  galleryCounter.textContent = `${currentImageIndex + 1} / ${currentGalleryImages.length}`;
+  
+  // Update active thumbnail
+  const thumbs = galleryThumbnails.querySelectorAll('.gallery-thumb');
+  thumbs.forEach((thumb, idx) => {
+    if (idx === currentImageIndex) {
+      thumb.classList.add('active');
+    } else {
+      thumb.classList.remove('active');
+    }
+  });
+}
+
+function buildGalleryThumbnails() {
+  galleryThumbnails.innerHTML = '';
+  currentGalleryImages.forEach((imgSrc, idx) => {
+    const thumb = document.createElement('div');
+    thumb.className = 'gallery-thumb';
+    if (idx === 0) thumb.classList.add('active');
+    thumb.innerHTML = `<img src="${imgSrc}" alt="Thumbnail ${idx + 1}" />`;
+    thumb.addEventListener('click', () => {
+      currentImageIndex = idx;
+      updateGallerySlide();
+    });
+    galleryThumbnails.appendChild(thumb);
+  });
+}
+
+document.getElementById('galleryPrev').addEventListener('click', () => {
+  currentImageIndex = (currentImageIndex - 1 + currentGalleryImages.length) % currentGalleryImages.length;
+  updateGallerySlide();
+});
+
+document.getElementById('galleryNext').addEventListener('click', () => {
+  currentImageIndex = (currentImageIndex + 1) % currentGalleryImages.length;
+  updateGallerySlide();
 });

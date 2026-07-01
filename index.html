@@ -440,54 +440,84 @@
         <div class="section-tag">Tin Tức & Sự Kiện</div>
         <h2 class="section-title">Cập Nhật <span class="gradient-text">Mới Nhất</span></h2>
       </div>
-      <div class="news-grid">
+      <div class="news-grid" id="newsGrid">
+        
+        <!-- Game 2: Thần Ma Giáng Thế (Featured) -->
         <article class="news-card news-featured">
           <div class="news-image">
-            <div class="news-img-placeholder" style="background: linear-gradient(135deg, #7c3aed, #dc2626);">
-              <span>🎉</span>
-            </div>
+            <img src="images/game2.png" alt="Thần Ma Giáng Thế" loading="lazy" />
           </div>
           <div class="news-body">
             <span class="news-tag">Sự Kiện</span>
-            <h3>Thần Ma Giáng Thế – Server Mới Khai Mở!</h3>
-            <p>Server S5 chính thức khai mở ngày 1/7/2025 với hàng nghìn phần quà chào mừng khủng. Đăng ký sớm nhận ngay
-              gói VIP đặc biệt!</p>
+            <h3>Thần Ma Giáng Thế – Server Mới S5 Khai Mở, Nhận KNB Cực Khủng!</h3>
+            <p>Server mới S5 chính thức khai mở chào đón hàng vạn kỳ tài nhập thế. Đăng nhập liên tục 7 ngày nhận ngay cánh Thần Ma hiếm và gói quà tân thủ trị giá 500K!</p>
             <div class="news-footer">
-              <span class="news-date">30/06/2025</span>
-              <a href="#" class="news-read">Đọc thêm →</a>
+              <span class="news-date">30/06/2026</span>
+              <a href="javascript:void(0)" class="news-read" onclick="showGameGallery('Thần Ma Giáng Thế')">Đọc thêm →</a>
             </div>
           </div>
         </article>
+
+        <!-- Game 1: Trấn Thi Hàng Quỷ -->
         <article class="news-card">
+          <div class="news-image">
+            <img src="images/game1.png" alt="Trấn Thi Hàng Quỷ" loading="lazy" />
+          </div>
           <div class="news-body">
             <span class="news-tag">Cập Nhật</span>
-            <h3>Trấn Thi Hàng Quỷ v2.5 – Thêm Boss Huyền Thoại</h3>
-            <p>Bản cập nhật lớn mang đến 3 Boss huyền thoại mới cùng hệ thống trang bị thần khí cực khủng!</p>
+            <h3>Trấn Thi Hàng Quỷ v2.5 – Thách Thức Boss Ma Vương Độc Tôn</h3>
+            <p>Bản cập nhật siêu khủng mang đến 3 Ma Vương thượng cổ cùng tính năng thức tỉnh Pháp Bảo cực chất. PvP rực lửa liên server chính thức khởi tranh!</p>
             <div class="news-footer">
-              <span class="news-date">28/06/2025</span>
-              <a href="#" class="news-read">Đọc thêm →</a>
+              <span class="news-date">29/06/2026</span>
+              <a href="javascript:void(0)" class="news-read" onclick="showGameGallery('Trấn Thi Hàng Quỷ')">Đọc thêm →</a>
             </div>
           </div>
         </article>
+
+        <!-- Game 3: Phù Sinh Mộng -->
         <article class="news-card">
+          <div class="news-image">
+            <img src="images/game3.png" alt="Phù Sinh Mộng" loading="lazy" />
+          </div>
+          <div class="news-body">
+            <span class="news-tag">Tính Năng</span>
+            <h3>Phù Sinh Mộng – Kết Duyên Uyên Ương, Chu Du Thiên Cảnh</h3>
+            <p>Hệ thống Tình Duyên chính thức ra mắt, cho phép người chơi kết đôi, mở khóa ngoại trang độc quyền và tham gia chiến trường phu thê đặc sắc.</p>
+            <div class="news-footer">
+              <span class="news-date">28/06/2026</span>
+              <a href="javascript:void(0)" class="news-read" onclick="showGameGallery('Phù Sinh Mộng')">Đọc thêm →</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Game 4: Huyết Cảnh Chi Vực -->
+        <article class="news-card">
+          <div class="news-image">
+            <img src="images/game4.png" alt="Huyết Cảnh Chi Vực" loading="lazy" />
+          </div>
+          <div class="news-body">
+            <span class="news-tag">Giải Đấu</span>
+            <h3>Huyết Cảnh Chi Vực – Chiến Trường Tận Thế Mùa 3 Bắt Đầu</h3>
+            <p>Vòng loại đấu trường sinh tử liên server mùa 3 đã mở. Hàng ngàn bang hội chuẩn bị xuất quân tranh đoạt lãnh địa hoàng gia tối cao.</p>
+            <div class="news-footer">
+              <span class="news-date">27/06/2026</span>
+              <a href="javascript:void(0)" class="news-read" onclick="showGameGallery('Huyết Cảnh Chi Vực')">Đọc thêm →</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Game 5: Tân Binh Thức Tỉnh -->
+        <article class="news-card">
+          <div class="news-image">
+            <img src="images/game5.png" alt="Tân Binh Thức Tỉnh" loading="lazy" />
+          </div>
           <div class="news-body">
             <span class="news-tag">Ra Mắt</span>
-            <h3>Tân Binh Thức Tỉnh – Chính Thức Mở Thử Nghiệm</h3>
-            <p>Game đã chính thức mở giai đoạn thử nghiệm CBT với 10.000 suất đăng ký đặc biệt!</p>
+            <h3>Tân Binh Thức Tỉnh – Nhận Code Thức Tỉnh Khi Đăng Ký Sớm</h3>
+            <p>Cơ hội tham gia thử nghiệm giới hạn để khám phá thế giới tu tiên rộng lớn. Đăng ký sớm ngay hôm nay để nhận Giftcode độc quyền ngày Open Beta.</p>
             <div class="news-footer">
-              <span class="news-date">25/06/2025</span>
-              <a href="#" class="news-read">Đọc thêm →</a>
-            </div>
-          </div>
-        </article>
-        <article class="news-card">
-          <div class="news-body">
-            <span class="news-tag">Huyết Cảnh</span>
-            <h3>Mùa 3 Huyết Cảnh Chi Vực – Chiến Trường Tận Thế</h3>
-            <p>Mùa 3 chính thức khởi động với bản đồ Tận Thế mới khổng lồ và hệ thống Liên Minh siêu khủng!</p>
-            <div class="news-footer">
-              <span class="news-date">22/06/2025</span>
-              <a href="#" class="news-read">Đọc thêm →</a>
+              <span class="news-date">26/06/2026</span>
+              <a href="javascript:void(0)" class="news-read" onclick="showGameGallery('Tân Binh Thức Tỉnh')">Đọc thêm →</a>
             </div>
           </div>
         </article>
@@ -716,6 +746,27 @@
         </a>
       </div>
       <p class="modal-note">* Vui lòng chụp ảnh màn hình đã tải game thành công để nhận Giftcode</p>
+    </div>
+  </div>
+
+  <!-- Gallery Modal -->
+  <div class="modal-overlay" id="galleryModal">
+    <div class="gallery-modal">
+      <button class="modal-close" onclick="closeGalleryModal()">✕</button>
+      <h3 class="gallery-title" id="galleryTitle">Hình Ảnh Game</h3>
+      <div class="gallery-container">
+        <button class="gallery-nav prev-btn" id="galleryPrev">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <div class="gallery-slide">
+          <img src="" id="galleryImage" alt="Game Screenshot" class="active" />
+        </div>
+        <button class="gallery-nav next-btn" id="galleryNext">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
+      <div class="gallery-counter" id="galleryCounter">1 / 3</div>
+      <div class="gallery-thumbnails" id="galleryThumbnails"></div>
     </div>
   </div>
 
